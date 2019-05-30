@@ -14,11 +14,11 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository{
 
     public TimeEntry create(TimeEntry timeEntry)
     {
-        System.out.println(timeEntry);
+        //System.out.println(timeEntry);
         id=id+1;
         timeEntry.setId(id);
         m.put(id, timeEntry);
-        System.out.println(timeEntry);
+        //System.out.println(timeEntry);
         return timeEntry;
     }
     public TimeEntry find(long timeEntryId)
@@ -43,7 +43,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository{
     public TimeEntry update(long entryId, TimeEntry timeEntry)
     {
         if(m.containsKey(entryId)) {
-            timeEntry.setId(id);
+            timeEntry.setId(entryId);
             m.put(entryId, timeEntry);
             return timeEntry;
         }

@@ -53,8 +53,9 @@ public class TimeEntryController {
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<TimeEntry> update(@PathVariable("timeEntryId") long timeEntryId, @RequestBody TimeEntry timeEntry)
     {
-        if(timeEntryId!=0) {
-            return new ResponseEntity(timeEntryRepository.update(timeEntryId, timeEntry), HttpStatus.OK);
+        TimeEntry timeEntry1=timeEntryRepository.update(timeEntryId, timeEntry);
+        if(timeEntry1!=null) {
+            return new ResponseEntity( timeEntry1, HttpStatus.OK);
         }
         return new ResponseEntity( HttpStatus.NOT_FOUND);
     }
